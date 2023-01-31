@@ -1,2 +1,2 @@
-# diploma
+# Graduation project
  
