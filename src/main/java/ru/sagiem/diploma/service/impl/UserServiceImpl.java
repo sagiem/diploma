@@ -1,35 +1,22 @@
 package ru.sagiem.diploma.service.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 import ru.sagiem.diploma.model.User;
+import ru.sagiem.diploma.repository.UserRepository;
 import ru.sagiem.diploma.service.interf.UserService;
 
 import java.util.List;
 
 @Service
-public class UserServiceImpl implements UserService {
-    @Override
-    public void create(User entity) {
+public class UserServiceImpl extends AbstractCRUDService<User, Long> implements UserService {
 
-    }
-
-    @Override
-    public User findById(Long id) {
-        return null;
-    }
+    @Autowired
+    UserRepository userRepository;
 
     @Override
-    public List<User> findAll() {
-        return null;
-    }
-
-    @Override
-    public User update(User entity) {
-        return null;
-    }
-
-    @Override
-    public void delete(User entity) {
-
+    CrudRepository<User, Long> getRepository() {
+        return userRepository;
     }
 }

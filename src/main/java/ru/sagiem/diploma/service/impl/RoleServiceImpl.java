@@ -7,15 +7,14 @@ import ru.sagiem.diploma.model.Role;
 import ru.sagiem.diploma.repository.RoleRepository;
 import ru.sagiem.diploma.service.interf.RoleService;
 
-import java.util.List;
-
 @Service
 public class RoleServiceImpl extends AbstractCRUDService<Role, Long> implements RoleService {
 
     @Autowired
     RoleRepository roleRepository;
+
     @Override
-    CrudRepository<Role, Long> getRepository(){
+    CrudRepository<Role, Long> getRepository() {
         return roleRepository;
     }
 }
