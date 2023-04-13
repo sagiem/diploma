@@ -26,6 +26,7 @@ public class Task {
     @Column(name="userId")
     private long userId;
 
+    //TODO: add logic to work with Date type in ajax methods
     @Column(name="date")
     private Date date;
 }
