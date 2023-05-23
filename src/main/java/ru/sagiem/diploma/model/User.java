@@ -6,9 +6,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import javax.naming.Name;
+
 
 @Entity
-@Table(name="user_table")
+@Table(name = "user_table")
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
@@ -19,12 +21,18 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name="firstName")
+    @Column(name = "userName")
+    private String userName;
+
+    @Column(name = "password")
+    private String password;
+
+    @Column(name = "firstName")
     private String firstName;
 
-    @Column(name="lastName")
+    @Column(name = "lastName")
     private String lastName;
 
-    @Column(name="email")
+    @Column(name = "email")
     private String email;
 }
