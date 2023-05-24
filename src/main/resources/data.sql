@@ -1,1 +1,1 @@
-INSERT INTO user_table (first_Name) VALUES ('Denys');
+INSERT INTO user_table (first_Name, useName, password) VALUES ('Denys', 'test', '123');
