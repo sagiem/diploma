@@ -24,12 +24,14 @@ public class SecurityConfig {
         http
                 .csrf().disable()
                 .authorizeHttpRequests()
-                .requestMatchers("/auth/login", "/error").permitAll()
-                .anyRequest().authenticated()
+                .requestMatchers("/auth/login","/auth/registration", "/error").permitAll()
+                .requestMatchers("/ui/**").authenticated()
                 .and()
                 .formLogin().loginPage("/auth/login").loginProcessingUrl("/process-login")
                 .defaultSuccessUrl("/ui/user/list", true)
-                .failureUrl("/auth/login?error");
+                .failureUrl("/auth/login?error")
+                .and()
+                .logout().logoutUrl("/logout").logoutSuccessUrl("/auth/login");
 
         return http.build();
 
