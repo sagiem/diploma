@@ -21,25 +21,23 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @Column(name = "username")
-    @Size(min = 2,max = 20,message = "Количество символов от 2 до 20")
+    @Size(min = 2, max = 20, message = "Username should be from 2 to 20 chars")
     private String username;
 
     @Column(name = "password")
-    @Size(min = 2,max = 20,message = "Количество символов от 2 до 20")
     private String password;
 
     @Column(name = "firstName")
-    @Size(min = 2,max = 20,message = "Количество символов от 2 до 20")
+    @Size(min = 2, max = 20, message = "First name should be from 2 to 20 chars")
     private String firstName;
 
     @Column(name = "lastName")
-    @Size(min = 2,max = 20,message = "Количество символов от 2 до 20")
+    @Size(min = 2, max = 20, message = "Last name should be from 2 to 20 chars")
     private String lastName;
 
     @Column(name = "email")
-    @Email()
     private String email;
 }

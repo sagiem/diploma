@@ -17,6 +17,7 @@ import javax.naming.Binding;
 @Controller
 @RequestMapping("/auth")
 public class AuthenticationController {
+
     @Autowired
     private UserValidator userValidator;
 
@@ -24,28 +25,27 @@ public class AuthenticationController {
     private UserService userService;
 
     @GetMapping("/login")
-    public String loginPage(){
-
+    public String loginPage() {
         return "auth/login";
     }
 
     @GetMapping("/registration")
-    public String registrationPage(@ModelAttribute("user") User user){
-
+    public String registrationPage(@ModelAttribute("user") User user) {
         return "auth/registration";
     }
 
     @PostMapping("/process-registration")
     public String processRegistration(@ModelAttribute("user") @Valid User user,
-                                      BindingResult bindingResult){
+                                      BindingResult bindingResult) {
 
+        //check if user already exists
         userValidator.validate(user, bindingResult);
 
         if(bindingResult.hasErrors()){
             return "auth/registration";
         }
-        //else
+
         userService.create(user);
-        return "redirect:/auth/ligin";
+        return "redirect:/auth/login";
     }
 }
