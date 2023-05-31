@@ -23,7 +23,8 @@ public class SecurityConfig {
     public SecurityFilterChain configure(HttpSecurity http) throws Exception {
         http
                 .csrf().disable()
-                .authorizeHttpRequests()
+                // TODO: разобраться с устаревшим authorizeRequests
+                .authorizeRequests()
                 .requestMatchers("/auth/login","/auth/registration", "/error").permitAll()
                 .requestMatchers("/ui/**").authenticated()
                 .and()
