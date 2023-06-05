@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns="http://www.w3.org/1999/xhtml"
@@ -46,7 +45,7 @@
         </tr>
         <tr>
             <td>Role</td>
-            <td><input id="role" name="role_name" type="text"></td>
+            <td><input id="title" name="title_name" type="text"></td>
         </tr>
     </table>
 
@@ -71,9 +70,9 @@
             }
         });
 
-        function RoleDTO(id,role){
+        function RoleDTO(id,title){
             this.id = id;
-            this.role = role;
+            this.title = title;
         }
 
         $(document).delegate('#btnSave','click',function(event){
@@ -82,13 +81,13 @@
             var roleId = $('#roleId').text();
 
             var id = roleId;
-            var role = $('#role').val();
+            var title = $('#title').val();
 
-            var roleDTO = new RoleDTO(id,role);
+            var roleDTO = new RoleDTO(id,title);
 
             console.log(roleId);
             console.log(id);
-            console.log(role);
+            console.log(title);
 
             console.log(roleDTO);
             console.log(JSON.stringify(roleDTO));
@@ -130,7 +129,7 @@
                 console.log(json);
 
                 $('#role_id').text(json.id);
-                $('#role').val(json.role);
+                $('#title').val(json.title);
             });
         }
 

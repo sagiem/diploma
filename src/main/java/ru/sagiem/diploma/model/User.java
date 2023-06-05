@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.naming.Name;
+import java.util.List;
 
 
 @Entity
@@ -40,4 +41,7 @@ public class User {
 
     @Column(name = "email")
     private String email;
+
+    @Transient
+    private List<String> authorities;
 }
