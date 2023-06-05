@@ -39,7 +39,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         return new UserDetailsImpl(user);
     }
 
-    public Optional<User> loadUserOptionalByUsername(String username){
+    public Optional<User> loadUserOptionalByUsername(String username) {
         return userRepository.findByUsername(username);
     }
 
